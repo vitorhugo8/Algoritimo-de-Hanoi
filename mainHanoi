@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+// Função Recursiva
+void mover(int n, char origem, char tempo, char destino) {
+    if (n == 1) {
+        printf("\nMova o disco 1 da haste %c para a haste %c\n", origem, destino);
+    } else {
+        mover(n - 1, origem, destino, tempo);
+        printf("\nMova o disco %d da haste %c para a haste %c\n", n, origem, destino);
+        mover(n - 1, tempo, origem, destino);
+    }
+}
+
+int main() {
+    int n = 3; // Número de discos
+    mover(n, 'O', 'T', 'D'); // O = origem, T = temporária, D = destino
+    return 0;
+}
